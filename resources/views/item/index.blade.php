@@ -33,13 +33,13 @@
                         </thead>
                         <tbody>
                             @foreach ($items as $item)
-                                <tr>
+                            <tr onclick="location.href='/product';">
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->price }}</td>
                                     <td>{{ $item->stocks }}</td>
                                     <td>{{ $item->detail }}</td>
-                                </tr>
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>

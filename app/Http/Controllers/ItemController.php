@@ -58,4 +58,10 @@ class ItemController extends Controller
 
         return view('item.add');
     }
+
+    // 商品詳細ページ
+    public function product(Request $request)
+    {
+        return view('item.product');
+    }
 }
