@@ -26,7 +26,8 @@
                             <tr>
                                 <th>ID</th>
                                 <th>名前</th>
-                                <th>種別</th>
+                                <th>金額</th>
+                                <th>在庫数</th>
                                 <th>詳細</th>
                             </tr>
                         </thead>
@@ -35,7 +36,8 @@
                                 <tr>
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->type }}</td>
+                                    <td>{{ $item->price }}</td>
+                                    <td>{{ $item->stocks }}</td>
                                     <td>{{ $item->detail }}</td>
                                 </tr>
                             @endforeach

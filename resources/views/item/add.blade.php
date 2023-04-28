@@ -29,8 +29,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="type">種別</label>
-                            <input type="number" class="form-control" id="type" name="type" placeholder="1, 2, 3, ...">
+                            <label for="price">金額</label>
+                            <input type="number" class="form-control" id="price" name="price" placeholder="金額">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="stocks">在庫数</label>
+                            <input type="number" class="form-control" id="stocks" name="stocks" placeholder="在庫数">
                         </div>
 
                         <div class="form-group">

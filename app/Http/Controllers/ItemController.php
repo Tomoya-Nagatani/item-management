@@ -43,12 +43,13 @@ class ItemController extends Controller
             $this->validate($request, [
                 'name' => 'required|max:100',
             ]);
-
+            // dd($request->all());
             // 商品登録
             Item::create([
                 'user_id' => Auth::user()->id,
                 'name' => $request->name,
-                'type' => $request->type,
+                'price' => $request->price,
+                'stocks' => $request->stocks,
                 'detail' => $request->detail,
             ]);
 
