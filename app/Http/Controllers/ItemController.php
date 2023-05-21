@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
+use App\Exports\ItemExport;
+use Maatwebsite\Excel\Facades\Excel;
+use PDF;
 
 class ItemController extends Controller
 {
@@ -18,19 +21,21 @@ class ItemController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * 商品一覧
-     */
-    public function index()
+    public function index(Request $request)
     {
-        // 商品一覧取得
-        $items = Item
-            ::where('items.status', 'active')
-            ->select()
-            ->get();
-
-        return view('item.index', compact('items'));
+        $keyword = $request->input('keyword');
+        $items = Item::where('status', 'active')
+            ->when(!empty($keyword), function($query) use($keyword){
+                return $query->where('name', 'like', '%' . $keyword . '%')
+                    ->orWhere('detail', 'like', '%' . $keyword . '%');
+            })
+            ->sortable()
+            ->paginate(10);
+            // ->get();
+        return view('items.index', compact('items'))->with('items', $items);
     }
+
+    
 
     /**
      * 商品登録
@@ -56,12 +61,53 @@ class ItemController extends Controller
             return redirect('/items');
         }
 
-        return view('item.add');
+        return view('items.add');
     }
 
-    // 商品詳細ページ
-    public function product(Request $request)
+    public function show(Request $request)
     {
-        return view('item.product');
+        $item = Item::where('id', '=', $request->id)->first();
+        return view('items.show')->with([
+            'item' => $item,
+        ]);
     }
+
+    // 商品編集ページ
+    public function edit(Request $request)
+    {
+        $item = Item::where('id', '=', $request->id)->first();
+        return view('items.edit')->with([
+            'item' => $item,
+        ]);
+    }
+
+    public function update(Request $request)
+    {
+
+        // 既存のレコードを取得して、編集してから保存する
+        $item = Item::where('id', '=', $request->id)->first();
+        $item->name = $request->name;
+        $item->price = $request->price;
+        $item->stocks = $request->stocks;
+        $item->detail = $request->detail;
+        // $item->image = $request->file('image');
+        // if($request->hasFile('image') && $item->isValid()){
+        //     $request->file('image')->store('images');
+        // }
+        $item->save();
+        return redirect('/items')->with('message', '編集が完了しました');
+    }
+    public function destroy(Request $request)
+    {
+        $item = Item::where('id', '=', $request->id)->first();
+        $item->delete();
+
+        return redirect('/items')->with('delete_message', '削除しました');;
+    }
+
+    // CSV出力
+    public function exportExcel(Request $request){
+        return Excel::download(new ItemExport, 'items.xlsx');
+    }
+
 }

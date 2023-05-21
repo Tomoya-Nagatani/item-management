@@ -226,10 +226,21 @@ return [
 
     'menu' => [
         [
-            'text' => '商品一覧',
+            'text' => '商品管理',
             'url'  => 'items',
-            'icon' => 'fas fa-gamepad',
+            'icon' => 'fas fa-table',
         ],
+        [
+            'text' => '顧客管理',
+            'url'  => 'items',
+            'icon' => 'fas fa-user',
+        ],
+        [
+            'text' => 'お問い合わせ',
+            'url'  => 'items',
+            'icon' => 'fas fa-envelope',
+        ],
+
 
         // AdminLTEデフォルト
         /*

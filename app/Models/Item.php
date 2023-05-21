@@ -3,9 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Kyslik\ColumnSortable\Sortable; 
 
 class Item extends Model
 {
+    use Sortable, HasFactory;
+    public $sortable = ['id', 'name', 'price', 'stocks', 'detail'];
     /**
      * The attributes that are mass assignable.
      *
@@ -34,4 +38,7 @@ class Item extends Model
      */
     protected $casts = [
     ];
+
+
+
 }

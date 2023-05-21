@@ -20,7 +20,7 @@
             @endif
 
             <div class="card card-primary">
-                <form method="POST">
+                <form method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
@@ -29,20 +29,20 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="price">金額</label>
-                            <input type="number" class="form-control" id="price" name="price" placeholder="金額">
+                            <label for="company">会社名</label>
+                            <input type="text" class="form-control" id="company" name="company" placeholder="会社名">
                         </div>
 
                         <div class="form-group">
-                            <label for="stocks">在庫数</label>
-                            <input type="number" class="form-control" id="stocks" name="stocks" placeholder="在庫数">
+                            <label for="product">ギフト</label>
+                            <input type="text" class="form-control" id="gift" name="gift" placeholder="ギフト">
                         </div>
 
                         <div class="form-group">
                             <label for="detail">詳細</label>
                             <input type="text" class="form-control" id="detail" name="detail" placeholder="詳細説明">
                         </div>
-                    </div>
+
 
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">登録</button>
