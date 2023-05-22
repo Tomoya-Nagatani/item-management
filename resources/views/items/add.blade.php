@@ -3,7 +3,7 @@
 @section('title', '商品登録')
 
 @section('content_header')
-    <h1>商品登録</h1>
+    <h1>新規登録</h1>
 @stop
 
 @section('content')
@@ -34,13 +34,28 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="phone">電話番号</label>
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="電話番号">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">住所</label>
+                            <input type="text" class="form-control" id="address" name="address" placeholder="住所">
+                        </div>
+
+                        <div class="form-group">
                             <label for="product">ギフト</label>
-                            <input type="text" class="form-control" id="gift" name="gift" placeholder="ギフト">
+                                <select id="product" name="product">
+                                    <option value="ビール">ビール</option>
+                                    <option value="ジュース">ジュース</option>
+                                    <option value="ゼリー">ゼリー</option>
+                                    <option value="その他">その他</option>
+                                </select>
                         </div>
 
                         <div class="form-group">
                             <label for="detail">詳細</label>
-                            <input type="text" class="form-control" id="detail" name="detail" placeholder="詳細説明">
+                            <input type="text" class="form-control" id="detail" name="detail" placeholder="ギフトがその他/ 喪中の場合、ここに記載">
                         </div>
 
 

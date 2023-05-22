@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 @section('title', '商品一覧')
 @section('content_header')
-    <h1>商品一覧</h1>
+    <h1>名簿一覧</h1>
     <div class="input-group mt-3 justify-content-end">
-        <a href="{{ url('items/add') }}" class="btn btn-primary">商品登録</a>
+        <a href="{{ url('items/add') }}" class="btn btn-primary">新規登録</a>
     </div>
     @stop
 
@@ -26,7 +26,7 @@
                 <label class="col-sm-2 control-label"></label>
                     <form method="get" action="{{ route('search')}}" class="form-inline">
                         <div class="col-sm-4">
-                            <input type="text" name="keyword" class="form-control" size="30" maxlength="100" placeholder="名前・詳細で検索">
+                            <input type="text" name="keyword" class="form-control" size="30" maxlength="100" placeholder="名前・会社名で検索">
                         </div>
             </div>
         </div>
@@ -57,8 +57,10 @@
             <tr>
                 <th>@sortablelink('id', 'ID')</th>
                 <th>@sortablelink('name', '名前')</th>
-                <th>@sortablelink('price', '価格')</th>
-                <th>@sortablelink('stocks', '在庫数')</th>
+                <th>@sortablelink('company', '会社名')</th>
+                <th>@sortablelink('phone', '電話番号')</th>
+                <th>@sortablelink('address', '住所')</th>
+                <th>@sortablelink('product', 'ギフト')</th>
                 <th>@sortablelink('detail', '詳細')</th>
                 <th>編集</th>
                                 
@@ -68,10 +70,12 @@
         @foreach ($items as $item)
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ '¥'.$item->price }}</td>
-                                    <td>{{ $item->stocks }}</td>
+                                    <td>{{ $item->company }}</td>
+                                    <td>{{ $item->phone }}</td>
+                                    <td>{{ $item->address }}</td>
+                                    <td>{{ $item->product }}</td>
                                     <td>{{ $item->detail }}</td>
-                                    <td><a href="{{ route('items.show',$item->id)}}"><button type="button" class="btn btn-outline-info">編集</button></a></td>                                   
+                                    <td><a href="{{ route('items.show',$item->id)}}"><button type="button" class="btn btn-outline-info">詳細</button></a></td>                                   
                             </tr>
                             @endforeach
                         </tbody>

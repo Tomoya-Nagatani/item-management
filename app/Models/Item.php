@@ -9,7 +9,7 @@ use Kyslik\ColumnSortable\Sortable;
 class Item extends Model
 {
     use Sortable, HasFactory;
-    public $sortable = ['id', 'name', 'price', 'stocks', 'detail'];
+    public $sortable = ['id', 'name', 'company', 'phone', 'address', 'product', 'detail'];
     /**
      * The attributes that are mass assignable.
      *
@@ -18,8 +18,10 @@ class Item extends Model
     protected $fillable = [
         'user_id',
         'name',
-        'price',
-        'stocks',
+        'company',
+        'phone',
+        'address',
+        'product',
         'detail',
     ];
 

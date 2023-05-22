@@ -16,29 +16,34 @@
                     <div class="control-group">
                     <!-- 名前 -->
                         <div class="mb-4">
-                            <label for="name" class="form-label">商品名</label>
+                            <label for="name" class="form-label">名前</label>
                             <input type="text" name="name" class="form-control" id="user-name" value="{{$item->name}}">
                         </div>
-                    <!-- 商品名 -->
+                    <!-- 会社名 -->
                         <div class="mb-4">
-                            <label for="price" class="form-label">価格</label>
-                            <input type="text" name="price" class="form-control" id="price" value="{{$item->price}}">
+                            <label for="company" class="form-label">会社名</label>
+                            <input type="text" name="company" class="form-control" id="company" value="{{$item->company}}">
                         </div>
-                    <!-- 在庫 -->
+                    <!-- 電話番号 -->
                         <div class="mb-4">
-                            <label for="stocks" class="form-label">在庫数</label>
-                            <input type="text" name="stocks" class="form-control" id="stocks" value="{{$item->stocks}}">
+                            <label for="phone" class="form-label">電話番号</label>
+                            <input type="text" name="phone" class="form-control" id="phone" value="{{$item->phone}}">
                         </div>
+                    <!-- 住所 -->
+                    <div class="mb-4">
+                    <label for="address" class="form-label">住所</label>
+                    <input type="text" name="address" class="form-control" id="address" value="{{$item->address}}">
+                    </div>
+                    <!-- ギフト -->
+                    <div class="mb-4">
+                    <label for="product" class="form-label">ギフト</label>
+                    <input type="text" name="product" class="form-control" id="product" value="{{$item->product}}">
+                    </div>
                     <!-- 詳細 -->
                         <div class="mb-4">
                             <label for="detail" class="form-label">詳細</label>
                             <input type="text" name="detail" class="form-control" id="detail" value="{{$item->detail}}">
                         </div>   
-                    <!-- 商品画像
-                        <div class="mb-4">
-                            <label for="image" class="form-label">商品画像</label>
-                            <input type="file" name="image" class="form-control" id="image" value="{{$item->image}}">
-                        </div>  -->
                     </div> 
                 </div>
             </div>

@@ -53,8 +53,10 @@ class ItemController extends Controller
             Item::create([
                 'user_id' => Auth::user()->id,
                 'name' => $request->name,
-                'price' => $request->price,
-                'stocks' => $request->stocks,
+                'company' => $request->company,
+                'phone' => $request->phone,
+                'address' => $request->address,
+                'product' => $request->product,
                 'detail' => $request->detail,
             ]);
 
@@ -87,13 +89,11 @@ class ItemController extends Controller
         // 既存のレコードを取得して、編集してから保存する
         $item = Item::where('id', '=', $request->id)->first();
         $item->name = $request->name;
-        $item->price = $request->price;
-        $item->stocks = $request->stocks;
+        $item->company = $request->company;
+        $item->phone = $request->phone;
+        $item->address = $request->address;
+        $item->product = $request->product;
         $item->detail = $request->detail;
-        // $item->image = $request->file('image');
-        // if($request->hasFile('image') && $item->isValid()){
-        //     $request->file('image')->store('images');
-        // }
         $item->save();
         return redirect('/items')->with('message', '編集が完了しました');
     }

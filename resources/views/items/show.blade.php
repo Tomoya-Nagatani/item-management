@@ -1,10 +1,6 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <!-- タイトル -->
-    <div class="col-12 mt-1">
-        <h4 class="text-secondary">{{$item->name}}</h4>
-    </div>
     <!-- 入力内容を返す -->
     <div class="card card-purple">
         <div class="card-body">
@@ -12,29 +8,35 @@
                 <div class="control-group">
                          <!-- 名前 -->
                         <div class="mb-4">
-                        <label for="name" class="form-label">商品名</label><br>
+                        <label for="name" class="form-label">名前</label><br>
                         {{$item->name}}
                         </div>
-                        <!-- 商品名 -->
+                        <!-- 会社名 -->
                         <div class="mb-4">
-                        <label for="price" class="form-label">価格</label><br>
-                        {{ '¥'.$item->price }}
+                        <label for="company" class="form-label">会社名</label><br>
+                        {{$item->company }}
                         </div>
-                        <!-- 在庫 -->
+                        <!-- 電話番号 -->
                         <div class="mb-4">
-                        <label for="stocks" class="form-label">在庫数</label><br>
-                        {{$item->stocks}}
+                        <label for="phone" class="form-label">電話番号</label><br>
+                        {{$item->phone}}
+                        </div>
+                        <!-- 住所 -->
+                        <div class="mb-4">
+                        <label for="address" class="form-label">住所</label><br>
+                        {{$item->address}}
+                        </div>
+                        <!-- ギフト -->
+                        <div class="mb-4">
+                        <label for="product" class="form-label">ギフト</label><br>
+                        {{$item->product}}
                         </div>
                         <!-- 詳細 -->
                         <div class="mb-4">
                         <label for="detail" class="form-label">詳細</label><br>
                         {{$item->detail}}
                         </div>   
-                        <!-- 商品画像 -->
-                        <div class="mb-4">
-                        <label for="image" class="form-label">商品画像</label><br>
-                        {{$item->image}}
-                        </div>   
+                       
                 </div>
             </div>
         </div>
