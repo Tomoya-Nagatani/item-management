@@ -9,32 +9,37 @@
                          <!-- 名前 -->
                         <div class="mb-4">
                         <label for="name" class="form-label">名前</label><br>
-                        {{$item->name}}
+                        <span class="border-bottom">{{$item->name}}</span>
                         </div>
                         <!-- 会社名 -->
                         <div class="mb-4">
-                        <label for="company" class="form-label">会社名</label><br>
-                        {{$item->company }}
+                        <label for="company" class="form-label">会社名</label><br>  
+                        <span class="border-bottom">{{$item->company }}</span>
                         </div>
                         <!-- 電話番号 -->
                         <div class="mb-4">
                         <label for="phone" class="form-label">電話番号</label><br>
-                        {{$item->phone}}
+                        <span class="border-bottom">{{$item->phone}}</span>
+                        </div>
+                        <!-- 郵便番号 -->
+                        <div class="mb-4">
+                        <label for="phone" class="form-label">郵便番号</label><br>
+                        <span class="border-bottom">{{$item->zipcode}}</span>
                         </div>
                         <!-- 住所 -->
                         <div class="mb-4">
                         <label for="address" class="form-label">住所</label><br>
-                        {{$item->address}}
+                        <span class="border-bottom"> {{$item->address}}</span>
                         </div>
                         <!-- ギフト -->
                         <div class="mb-4">
-                        <label for="product" class="form-label">ギフト</label><br>
-                        {{$item->product}}
+                        <label for="product" class="form-label">内容</label><br>
+                        <span class="border-bottom"> {{$item->product}}</span>
                         </div>
                         <!-- 詳細 -->
                         <div class="mb-4">
-                        <label for="detail" class="form-label">詳細</label><br>
-                        {{$item->detail}}
+                        <label for="detail" class="form-label">メモ</label><br>
+                        <span class="border-bottom"> {{$item->detail}}</span>
                         </div>   
                        
                 </div>

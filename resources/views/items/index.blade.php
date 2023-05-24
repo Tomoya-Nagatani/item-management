@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', '商品一覧')
+@section('title', 'タイトル')
 @section('content_header')
     <h1>名簿一覧</h1>
     <div class="input-group mt-3 justify-content-end">
@@ -14,29 +14,30 @@
 <div class="alert alert-success">{{session('message')}}</div>
 @endif
 
-<!-- 検索フォーム -->
+<!-- 検索フォームのタイトル -->
 @section('content')
 <div class="card">
     <div class="card-header bg-info">
         <h3 class="card-title">検索条件</h3>
     </div>
+    <!-- 検索フォーム -->
     <div class="card-header">
         <div class="form-group">
-             <div class="control-group" id="stockName">
-                <label class="col-sm-2 control-label"></label>
-                    <form method="get" action="{{ route('search')}}" class="form-inline">
-                        <div class="col-sm-4">
-                            <input type="text" name="keyword" class="form-control" size="30" maxlength="100" placeholder="名前・会社名で検索">
-                        </div>
+        <form method="get" action="{{ route('search')}}" class="form-inline">
+            <div class="col-sm-4">
+                <input type="text" name="keyword" class="form-control" size="30" maxlength="100" placeholder="名前・会社名で検索">
             </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">検索</button>
+                    <button type="submit" class="btn btn-secondary">
+                        <a href="{{ route('index') }}" class="text-white text-decoration-none">クリア</a></button>
+                </div>
+        </div>
+
+            </form>
         </div>
     </div>
-        <div class="card-footer text-center">
-            <button type="submit" class="btn btn-secondary">検索</button>
-        </div>
-                    </form>
 </div>
-
 
 <!-- 検索結果 -->
 <div class="card-header bg-info">
@@ -59,9 +60,10 @@
                 <th>@sortablelink('name', '名前')</th>
                 <th>@sortablelink('company', '会社名')</th>
                 <th>@sortablelink('phone', '電話番号')</th>
+                <th>@sortablelink('zipcode', '郵便番号')</th>
                 <th>@sortablelink('address', '住所')</th>
-                <th>@sortablelink('product', 'ギフト')</th>
-                <th>@sortablelink('detail', '詳細')</th>
+                <th>@sortablelink('product', '内容')</th>
+                <th>@sortablelink('detail', 'メモ')</th>
                 <th>編集</th>
                                 
             </tr>
@@ -72,6 +74,7 @@
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->company }}</td>
                                     <td>{{ $item->phone }}</td>
+                                    <td>{{ $item->zipcode }}</td>
                                     <td>{{ $item->address }}</td>
                                     <td>{{ $item->product }}</td>
                                     <td>{{ $item->detail }}</td>

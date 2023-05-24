@@ -20,7 +20,7 @@ class AddColumnToItemsTable extends Migration
             $table->string('phone')->comment('電話番号');
             $table->string('address')->comment('住所');
             $table->string('product')->comment('商品名');
-
+            $table->string('zipcode')->comment('郵便番号');
         });
     }
 

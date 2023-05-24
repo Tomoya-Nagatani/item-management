@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>商品管理</b>',
+    'logo' => '<b>タイトル</b>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -226,21 +226,15 @@ return [
 
     'menu' => [
         [
-            'text' => '商品管理',
-            'url'  => 'items',
-            'icon' => 'fas fa-table',
-        ],
-        [
-            'text' => '顧客管理',
+            'text' => '名簿一覧',
             'url'  => 'items',
             'icon' => 'fas fa-user',
         ],
         [
-            'text' => 'お問い合わせ',
-            'url'  => 'items',
-            'icon' => 'fas fa-envelope',
+            'text' => '新規登録',
+            'url'  => 'items/add',
+            'icon' => 'fas fa-user-plus',
         ],
-
 
         // AdminLTEデフォルト
         /*

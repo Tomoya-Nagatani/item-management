@@ -2,9 +2,7 @@
 @section('content')
 <div class="container">
     <!-- タイトル -->
-    <div class="col-12 mt-1">
-        <h4 class="text-secondary">編集</h4>
-    </div>
+    <h3>編集画面</h3>
 
     <form action="{{ route('items.update', $item->id) }}" method="post">
         @csrf
@@ -29,6 +27,11 @@
                             <label for="phone" class="form-label">電話番号</label>
                             <input type="text" name="phone" class="form-control" id="phone" value="{{$item->phone}}">
                         </div>
+                    <!-- 郵便番号 -->
+                        <div class="mb-4">
+                            <label for="zipcode" class="form-label">郵便番号</label>
+                            <input type="text" name="zipcode" class="form-control" id="zipcode" value="{{$item->zipcode}}">
+                        </div>
                     <!-- 住所 -->
                     <div class="mb-4">
                     <label for="address" class="form-label">住所</label>
@@ -36,12 +39,18 @@
                     </div>
                     <!-- ギフト -->
                     <div class="mb-4">
-                    <label for="product" class="form-label">ギフト</label>
-                    <input type="text" name="product" class="form-control" id="product" value="{{$item->product}}">
-                    </div>
+                    <label for="product" class="form-label">内容</label>
+                                <select class="custom-select my-1 mr-sm-2" id="product" name="product">
+                                    <option selected></option>
+                                    <option value="年賀">年賀</option>
+                                    <option value="喪中">喪中</option>
+                                    <option value="寒中">寒中</option>
+                                    <option value="なし">なし</option>
+                                </select>
+                        </div>
                     <!-- 詳細 -->
                         <div class="mb-4">
-                            <label for="detail" class="form-label">詳細</label>
+                            <label for="detail" class="form-label">メモ</label>
                             <input type="text" name="detail" class="form-control" id="detail" value="{{$item->detail}}">
                         </div>   
                     </div> 

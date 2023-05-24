@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
 use App\Exports\ItemExport;
 use Maatwebsite\Excel\Facades\Excel;
-use PDF;
 
 class ItemController extends Controller
 {
@@ -27,15 +26,13 @@ class ItemController extends Controller
         $items = Item::where('status', 'active')
             ->when(!empty($keyword), function($query) use($keyword){
                 return $query->where('name', 'like', '%' . $keyword . '%')
-                    ->orWhere('detail', 'like', '%' . $keyword . '%');
+                    ->orWhere('company', 'like', '%' . $keyword . '%');
             })
             ->sortable()
             ->paginate(10);
             // ->get();
         return view('items.index', compact('items'))->with('items', $items);
     }
-
-    
 
     /**
      * 商品登録
@@ -55,7 +52,8 @@ class ItemController extends Controller
                 'name' => $request->name,
                 'company' => $request->company,
                 'phone' => $request->phone,
-                'address' => $request->address,
+                'zipcode' => $request->zip21 . '-' . $request->zip22,
+                'address' => $request->pref21 . $request->addr21 . $request->strt21,
                 'product' => $request->product,
                 'detail' => $request->detail,
             ]);
