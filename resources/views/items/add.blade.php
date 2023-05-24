@@ -10,7 +10,7 @@
 <script src="https://ajaxzip3.github.io/ajaxzip3.js"></script>
 <script src="{{ asset('public/js/app.js') }}"></script>
 
-
+<!-- 注意文の表示 -->
 <div class="row">
     <div class="col-md-12">
         @if ($errors->any())
@@ -23,57 +23,54 @@
             </div>
         @endif
 
-    <div class="card card-primary">  
-        <form method="POST" enctype="multipart/form-data">
-             @csrf
-                <div class="card-body">
-                    <div class="col col-lg-7">
-                        <div class="row mb-3">
-                            <label for="name"><span class="text-danger">*</span>名前</label>
-                            <input type="text" class="form-control" id="name" name="name" >
-                        </div>
-                        <label for="zipcode"><span class="text-danger">*</span>ご住所</label>
-
-                        <div>郵便番号：
-                            <input type="text"  name="zip21" maxlength="3" size="4">-
-                            <input type="text" id="zipcode" name="zip22" maxlength="4" size="5" onkeyup="AjaxZip3.zip2addr('zip21', 'zip22', 'pref21', 'addr21', 'strt21');">
-                        </div>
-
-                        <div>都道府県：
-                            <input type="text" name="pref21" size="30"  id="address" name="address" >
-                        </div>
-
-                        <div>市区町村：
-                            <input type="text" name="addr21" size="30" id="address" name="address">
-                        </div>
-
-                        <div>町名番地：
-                            <input type="text" name="strt21" size="30" id="address" name="address">
-                        </div>
-
-                        <div class="row mb-3">
-                            <label class="my-1 mr-2" for="content"><span class="text-danger">*</span>内容</label>
-                                <select class="custom-select my-1 mr-sm-2" id="content" name="content">
-                                    <option selected></option>
-                                    <option value="年賀">年賀</option>
-                                    <option value="喪中">喪中</option>
-                                    <option value="寒中">寒中</option>
-                                    <option value="なし">なし</option>
-                                </select>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="memo">メモ</label>
-                            <input type="text" class="form-control" id="memo" name="memo">
-                        </div>
-             
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">登録</button>
-                    </div>
-                </form>
-            </div>
+<form method="POST" enctype="multipart/form-data">
+@csrf
+    <div class="row">
+        <div class="col-md-3">
+            <label for="name1" class="form-label">名前</label>
+            <input type="text" class="form-control" id="name" name="name">
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <label for="zipcode" class="form-label">郵便番号</label>
+            <input type="text" name="zipcode" class="form-control" placeholder="〒000-0000" onKeyUp="AjaxZip3.zip2addr(this, '', 'address', 'address');">
+        </div>
+        <div class="col-md-4">
+            <label for="address" class="form-label">住所</label>
+            <input type="text" name="address" class="form-control">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <label class="my-1 mr-2" for="content">内容</label>
+                <select class="custom-select my-1 mr-sm-2" id="content" name="content">
+                    <option selected></option>
+                    <option value="年賀">年賀</option>
+                    <option value="喪中">喪中</option>
+                    <option value="寒中">寒中</option>
+                    <option value="なし">なし</option>
+                </select>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <label for="memo">メモ</label>
+            <input type="text" class="form-control" id="memo" name="memo">
+        </div>
+    </div>
+    
+   
+        <button type="submit" class="btn btn-primary">登録</button>
+    
+</form>
+
+
+
+
 
    
 
