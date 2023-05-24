@@ -25,7 +25,7 @@
         <div class="form-group">
         <form method="get" action="{{ route('search')}}" class="form-inline">
             <div class="col-sm-4">
-                <input type="text" name="keyword" class="form-control" size="30" maxlength="100" placeholder="名前・会社名で検索">
+                <input type="text" name="keyword" class="form-control" size="30" maxlength="100" placeholder="名前・内容で検索">
             </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary">検索</button>
@@ -58,12 +58,10 @@
             <tr>
                 <th>@sortablelink('id', 'ID')</th>
                 <th>@sortablelink('name', '名前')</th>
-                <th>@sortablelink('company', '会社名')</th>
-                <th>@sortablelink('phone', '電話番号')</th>
                 <th>@sortablelink('zipcode', '郵便番号')</th>
                 <th>@sortablelink('address', '住所')</th>
-                <th>@sortablelink('product', '内容')</th>
-                <th>@sortablelink('detail', 'メモ')</th>
+                <th>@sortablelink('content', '内容')</th>
+                <th>@sortablelink('memo', 'メモ')</th>
                 <th>編集</th>
                                 
             </tr>
@@ -72,12 +70,10 @@
         @foreach ($items as $item)
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->company }}</td>
-                                    <td>{{ $item->phone }}</td>
                                     <td>{{ $item->zipcode }}</td>
                                     <td>{{ $item->address }}</td>
-                                    <td>{{ $item->product }}</td>
-                                    <td>{{ $item->detail }}</td>
+                                    <td>{{ $item->content }}</td>
+                                    <td>{{ $item->memo }}</td>
                                     <td><a href="{{ route('items.show',$item->id)}}"><button type="button" class="btn btn-outline-info">詳細</button></a></td>                                   
                             </tr>
                             @endforeach

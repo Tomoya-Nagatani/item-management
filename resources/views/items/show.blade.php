@@ -11,19 +11,9 @@
                         <label for="name" class="form-label">名前</label><br>
                         <span class="border-bottom">{{$item->name}}</span>
                         </div>
-                        <!-- 会社名 -->
-                        <div class="mb-4">
-                        <label for="company" class="form-label">会社名</label><br>  
-                        <span class="border-bottom">{{$item->company }}</span>
-                        </div>
-                        <!-- 電話番号 -->
-                        <div class="mb-4">
-                        <label for="phone" class="form-label">電話番号</label><br>
-                        <span class="border-bottom">{{$item->phone}}</span>
-                        </div>
                         <!-- 郵便番号 -->
                         <div class="mb-4">
-                        <label for="phone" class="form-label">郵便番号</label><br>
+                        <label for="zipcode" class="form-label">郵便番号</label><br>
                         <span class="border-bottom">{{$item->zipcode}}</span>
                         </div>
                         <!-- 住所 -->
@@ -33,13 +23,13 @@
                         </div>
                         <!-- ギフト -->
                         <div class="mb-4">
-                        <label for="product" class="form-label">内容</label><br>
-                        <span class="border-bottom"> {{$item->product}}</span>
+                        <label for="content" class="form-label">内容</label><br>
+                        <span class="border-bottom"> {{$item->content}}</span>
                         </div>
                         <!-- 詳細 -->
                         <div class="mb-4">
-                        <label for="detail" class="form-label">メモ</label><br>
-                        <span class="border-bottom"> {{$item->detail}}</span>
+                        <label for="memo" class="form-label">メモ</label><br>
+                        <span class="border-bottom"> {{$item->memo}}</span>
                         </div>   
                        
                 </div>
@@ -56,7 +46,8 @@
 </div>
     <div class="card-footer text-center clearfix ">
         <a href="{{ route('items.edit',$item->id)}}"><button type="button" class="btn btn-primary">変更する</button></a>    
-        <a href="{{ route('items.destroy', $item->id) }}" onclick="return confirm('削除してもよろしいですか？')"><button type="button" class="btn btn-outline-danger">削除する</button></a>
+        <a href="{{ route('items.destroy', $item->id) }}"  onclick="return confirm('削除してもよろしいですか？')">
+        <button type="button" class="btn btn-outline-danger">削除する</button></a>
     </form>
     </div>
 

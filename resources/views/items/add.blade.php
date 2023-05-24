@@ -32,20 +32,7 @@
                             <label for="name"><span class="text-danger">*</span>名前</label>
                             <input type="text" class="form-control" id="name" name="name" >
                         </div>
-                           
-                        <div class="row mb-3">
-                            <label for="company"><span class="text-danger">*</span>会社名</label>
-                            <input type="text" class="form-control" id="company" name="company" >
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="phone"><span class="text-danger">*</span>電話番号</label>
-                            <input type="text" class="form-control" id="phone" name="phone">
-                        </div>
-
-                        
-                       
-                        <label for="zipcode"><span class="text-danger">*</span>郵便番号</label>
+                        <label for="zipcode"><span class="text-danger">*</span>ご住所</label>
 
                         <div>郵便番号：
                             <input type="text"  name="zip21" maxlength="3" size="4">-
@@ -65,8 +52,8 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label class="my-1 mr-2" for="product"><span class="text-danger">*</span>内容</label>
-                                <select class="custom-select my-1 mr-sm-2" id="product" name="product">
+                            <label class="my-1 mr-2" for="content"><span class="text-danger">*</span>内容</label>
+                                <select class="custom-select my-1 mr-sm-2" id="content" name="content">
                                     <option selected></option>
                                     <option value="年賀">年賀</option>
                                     <option value="喪中">喪中</option>
@@ -76,8 +63,8 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="detail">メモ</label>
-                            <input type="text" class="form-control" id="detail" name="detail">
+                            <label for="memo">メモ</label>
+                            <input type="text" class="form-control" id="memo" name="memo">
                         </div>
              
                     <div class="card-footer">
@@ -88,7 +75,7 @@
         </div>
     </div>
 
-
+   
 
 
 @stop

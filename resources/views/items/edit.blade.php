@@ -17,16 +17,6 @@
                             <label for="name" class="form-label">名前</label>
                             <input type="text" name="name" class="form-control" id="user-name" value="{{$item->name}}">
                         </div>
-                    <!-- 会社名 -->
-                        <div class="mb-4">
-                            <label for="company" class="form-label">会社名</label>
-                            <input type="text" name="company" class="form-control" id="company" value="{{$item->company}}">
-                        </div>
-                    <!-- 電話番号 -->
-                        <div class="mb-4">
-                            <label for="phone" class="form-label">電話番号</label>
-                            <input type="text" name="phone" class="form-control" id="phone" value="{{$item->phone}}">
-                        </div>
                     <!-- 郵便番号 -->
                         <div class="mb-4">
                             <label for="zipcode" class="form-label">郵便番号</label>
@@ -39,8 +29,8 @@
                     </div>
                     <!-- ギフト -->
                     <div class="mb-4">
-                    <label for="product" class="form-label">内容</label>
-                                <select class="custom-select my-1 mr-sm-2" id="product" name="product">
+                    <label for="content" class="form-label">内容</label>
+                                <select class="custom-select my-1 mr-sm-2" id="content" name="content">
                                     <option selected></option>
                                     <option value="年賀">年賀</option>
                                     <option value="喪中">喪中</option>
@@ -50,8 +40,8 @@
                         </div>
                     <!-- 詳細 -->
                         <div class="mb-4">
-                            <label for="detail" class="form-label">メモ</label>
-                            <input type="text" name="detail" class="form-control" id="detail" value="{{$item->detail}}">
+                            <label for="memo" class="form-label">メモ</label>
+                            <input type="text" name="memo" class="form-control" id="memo" value="{{$item->memo}}">
                         </div>   
                     </div> 
                 </div>

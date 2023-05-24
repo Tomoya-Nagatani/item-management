@@ -26,7 +26,7 @@ class ItemController extends Controller
         $items = Item::where('status', 'active')
             ->when(!empty($keyword), function($query) use($keyword){
                 return $query->where('name', 'like', '%' . $keyword . '%')
-                    ->orWhere('company', 'like', '%' . $keyword . '%');
+                    ->orWhere('content', 'like', '%' . $keyword . '%');
             })
             ->sortable()
             ->paginate(10);
@@ -50,12 +50,10 @@ class ItemController extends Controller
             Item::create([
                 'user_id' => Auth::user()->id,
                 'name' => $request->name,
-                'company' => $request->company,
-                'phone' => $request->phone,
                 'zipcode' => $request->zip21 . '-' . $request->zip22,
                 'address' => $request->pref21 . $request->addr21 . $request->strt21,
-                'product' => $request->product,
-                'detail' => $request->detail,
+                'content' => $request->content,
+                'memo' => $request->memo,
             ]);
 
             return redirect('/items');
@@ -87,11 +85,9 @@ class ItemController extends Controller
         // 既存のレコードを取得して、編集してから保存する
         $item = Item::where('id', '=', $request->id)->first();
         $item->name = $request->name;
-        $item->company = $request->company;
-        $item->phone = $request->phone;
         $item->address = $request->address;
-        $item->product = $request->product;
-        $item->detail = $request->detail;
+        $item->content = $request->content;
+        $item->memo = $request->memo;
         $item->save();
         return redirect('/items')->with('message', '編集が完了しました');
     }
