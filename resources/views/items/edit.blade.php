@@ -27,18 +27,46 @@
                     <label for="address" class="form-label">住所</label>
                     <input type="text" name="address" class="form-control" id="address" value="{{$item->address}}">
                     </div>
-                    <!-- ギフト -->
-                    <div class="mb-4">
-                    <label for="content" class="form-label">内容</label>
-                                <select class="custom-select my-1 mr-sm-2" id="content" name="content">
+                    <!-- 2021年～2023年 -->
+                    <div class="row mb-4">
+                        <div class="col-md-2">
+                            <label class="my-1 mr-2" for="content">2021年</label>
+                                <select class="custom-select my-1 mr-sm-2" id="content" name="content2021">
                                     <option selected></option>
-                                    <option value="年賀">年賀</option>
+                                    <option value="✅">✅</option>
                                     <option value="喪中">喪中</option>
-                                    <option value="寒中">寒中</option>
-                                    <option value="なし">なし</option>
+                                    <option value="❌">❌</option>
                                 </select>
                         </div>
-                    <!-- 詳細 -->
+                        <div class="col-md-2">
+                            <label class="my-1 mr-2" for="content">2022年</label>
+                                <select class="custom-select my-1 mr-sm-2" id="content" name="content2022">
+                                    <option selected></option>
+                                    <option value="✅">✅</option>
+                                    <option value="喪中">喪中</option>
+                                    <option value="❌">❌</option>
+                                </select>
+                        </div>   
+                        <div class="col-md-2">
+                            <label class="my-1 mr-2" for="content">2023年</label>
+                                <select class="custom-select my-1 mr-sm-2" id="content" name="content">
+                                    <option selected></option>
+                                    <option value="✅">✅</option>
+                                    <option value="喪中">喪中</option>
+                                    <option value="❌">❌</option>
+                                </select>
+                        </div>
+                    </div>
+                    <div class="col-mb-4">
+                            <label class="my-1 mr-2" for="category">カテゴリー</label>
+                                <select class="custom-select my-1 mr-sm-2" id="category" name="category">
+                                    <option selected></option>
+                                    <option value="仕事">仕事</option>
+                                    <option value="プライベート">プライベート</option>
+                                    <option value="その他">その他</option>
+                                </select>
+                        </div>
+                    <!-- メモ -->
                         <div class="mb-4">
                             <label for="memo" class="form-label">メモ</label>
                             <input type="text" name="memo" class="form-control" id="memo" value="{{$item->memo}}">

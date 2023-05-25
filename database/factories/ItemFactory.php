@@ -18,10 +18,14 @@ class ItemFactory extends Factory
         return [
             'user_id' =>1,
             'name' => $this->faker->name(),
-            'price' => rand(100,50000),
-            'stocks' => rand(1,50),
-            'detail' => $this->faker->realText(10),
-             //
+            'zipcode' => $this->faker->postcode(),
+            'address' => $this->faker->address(),
+            'content2021' => $this->faker->randomElement($arrary = ["✅", "喪中", "❌"]),
+            'content2022' =>$this->faker->randomElement($arrary =  ["✅", "喪中", "❌"]),
+            'content' => $this->faker->randomElement($arrary =  ["✅", "喪中", "❌"]),
+            'category' => $this->faker->randomElement($arrary = ["仕事", "プライベート", "その他"]),
+            // 'memo' => $this->faker->realText(10),
+            
         ];
     }
 }

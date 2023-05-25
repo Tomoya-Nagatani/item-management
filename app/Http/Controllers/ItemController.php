@@ -43,16 +43,25 @@ class ItemController extends Controller
         if ($request->isMethod('post')) {
             // バリデーション
             $this->validate($request, [
-                'name' => 'required|max:100',
+                'name' => 'required',
+                'zipcode' => 'required',
+                'address' => 'required',
+                'content2021' => 'required',
+                'content2022' => 'required',
+                'content' => 'required',
+                'category' => 'required',
             ]);
             // dd($request->all());
             // 商品登録
             Item::create([
                 'user_id' => Auth::user()->id,
                 'name' => $request->name,
-                'zipcode' => $request->zip21 . '-' . $request->zip22,
-                'address' => $request->pref21 . $request->addr21 . $request->strt21,
+                'zipcode' => $request->zipcode,
+                'address' => $request->address,
+                'content2021' => $request->content2021,
+                'content2022' => $request->content2022,
                 'content' => $request->content,
+                'category' => $request->category,
                 'memo' => $request->memo,
             ]);
 
@@ -85,6 +94,7 @@ class ItemController extends Controller
         // 既存のレコードを取得して、編集してから保存する
         $item = Item::where('id', '=', $request->id)->first();
         $item->name = $request->name;
+        $item->zipcode = $request->zipcode;
         $item->address = $request->address;
         $item->content = $request->content;
         $item->memo = $request->memo;

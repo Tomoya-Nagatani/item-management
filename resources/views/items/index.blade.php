@@ -23,21 +23,20 @@
     <!-- 検索フォーム -->
     <div class="card-header">
         <div class="form-group">
-        <form method="get" action="{{ route('search')}}" class="form-inline">
-            <div class="col-sm-4">
-                <input type="text" name="keyword" class="form-control" size="30" maxlength="100" placeholder="名前・内容で検索">
-            </div>
+            <form method="get" action="{{ route('search')}}" class="form-inline">
+                <div class="col-sm-4">
+                    <input type="text" name="keyword" class="form-control" size="30" maxlength="100" placeholder="名前・内容で検索">
+                </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary">検索</button>
                     <button type="submit" class="btn btn-secondary">
                         <a href="{{ route('index') }}" class="text-white text-decoration-none">クリア</a></button>
                 </div>
-        </div>
-
-            </form>
-        </div>
+        </div>       
+            </form>             
     </div>
 </div>
+    
 
 <!-- 検索結果 -->
 <div class="card-header bg-info">
@@ -60,7 +59,10 @@
                 <th>@sortablelink('name', '名前')</th>
                 <th>@sortablelink('zipcode', '郵便番号')</th>
                 <th>@sortablelink('address', '住所')</th>
-                <th>@sortablelink('content', '内容')</th>
+                <th>@sortablelink('content2021', '2021年')</th>
+                <th>@sortablelink('content2022', '2022年')</th>
+                <th>@sortablelink('content', '2023年')</th>
+                <th>@sortablelink('category', 'カテゴリー')</th>
                 <th>@sortablelink('memo', 'メモ')</th>
                 <th>編集</th>
                                 
@@ -72,7 +74,10 @@
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->zipcode }}</td>
                                     <td>{{ $item->address }}</td>
+                                    <td>{{ $item->content2021 }}</td>
+                                    <td>{{ $item->content2022 }}</td>
                                     <td>{{ $item->content }}</td>
+                                    <td>{{ $item->category }}</td>
                                     <td>{{ $item->memo }}</td>
                                     <td><a href="{{ route('items.show',$item->id)}}"><button type="button" class="btn btn-outline-info">詳細</button></a></td>                                   
                             </tr>
