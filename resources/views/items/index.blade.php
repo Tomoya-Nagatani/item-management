@@ -1,18 +1,11 @@
 @extends('adminlte::page')
-@section('title', 'タイトル')
+@section('title', '名簿一覧')
 @section('content_header')
     <h1>名簿一覧</h1>
     <div class="input-group mt-3 justify-content-end">
         <a href="{{ url('items/add') }}" class="btn btn-primary">新規登録</a>
     </div>
     @stop
-
-
-
-<!-- 編集・削除時のフラッシュメッセージ -->
-@if(session('message'))
-<div class="alert alert-success">{{session('message')}}</div>
-@endif
 
 <!-- 検索フォームのタイトル -->
 @section('content')
@@ -25,7 +18,7 @@
         <div class="form-group">
             <form method="get" action="{{ route('search')}}" class="form-inline">
                 <div class="col-sm-4">
-                    <input type="text" name="keyword" class="form-control" size="30" maxlength="100" placeholder="名前・内容で検索">
+                    <input type="text" name="keyword" class="form-control" size="30" maxlength="100" placeholder="名前・住所で検索">
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary">検索</button>
@@ -64,8 +57,7 @@
                 <th>@sortablelink('content', '2023年')</th>
                 <th>@sortablelink('category', 'カテゴリー')</th>
                 <th>@sortablelink('memo', 'メモ')</th>
-                <th>編集</th>
-                                
+                <th>編集</th>                  
             </tr>
         </thead>
     <tbody>
@@ -80,7 +72,9 @@
                                     <td>{{ $item->category }}</td>
                                     <td>{{ $item->memo }}</td>
                                     <td><a href="{{ route('items.show',$item->id)}}"><button type="button" class="btn btn-outline-info">詳細</button></a></td>                                   
-                            </tr>
+                                      
+                                 
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>
@@ -99,4 +93,17 @@
 @stop
 
 @section('js')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <!-- フラッシュメッセージ -->
+        <script>
+            @if (session('flash_message'))
+                $(function () {
+                        toastr.success('{{ session('flash_message') }}');
+                });
+            @endif
+        </script>
+
 @stop
+

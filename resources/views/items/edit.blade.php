@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', '編集画面')
 @section('content')
 <div class="container">
     <!-- タイトル -->
@@ -15,23 +16,23 @@
                     <!-- 名前 -->
                         <div class="mb-4">
                             <label for="name" class="form-label">名前</label>
-                            <input type="text" name="name" class="form-control" id="user-name" value="{{$item->name}}">
+                            <input type="text" name="name" class="form-control" id="user-name" value="{{$item->name}}" required>
                         </div>
                     <!-- 郵便番号 -->
                         <div class="mb-4">
                             <label for="zipcode" class="form-label">郵便番号</label>
-                            <input type="text" name="zipcode" class="form-control" id="zipcode" value="{{$item->zipcode}}">
+                            <input type="text" name="zipcode" class="form-control" id="zipcode" value="{{$item->zipcode}}" required>
                         </div>
                     <!-- 住所 -->
                     <div class="mb-4">
                     <label for="address" class="form-label">住所</label>
-                    <input type="text" name="address" class="form-control" id="address" value="{{$item->address}}">
+                    <input type="text" name="address" class="form-control" id="address" value="{{$item->address}}" required>
                     </div>
                     <!-- 2021年～2023年 -->
                     <div class="row mb-4">
                         <div class="col-md-2">
                             <label class="my-1 mr-2" for="content">2021年</label>
-                                <select class="custom-select my-1 mr-sm-2" id="content" name="content2021">
+                                <select class="custom-select my-1 mr-sm-2" id="content2021" name="content2021" value="{{$item->content2021}}" required>
                                     <option selected></option>
                                     <option value="✅">✅</option>
                                     <option value="喪中">喪中</option>
@@ -40,7 +41,7 @@
                         </div>
                         <div class="col-md-2">
                             <label class="my-1 mr-2" for="content">2022年</label>
-                                <select class="custom-select my-1 mr-sm-2" id="content" name="content2022">
+                                <select class="custom-select my-1 mr-sm-2" id="content" name="content2022" required>
                                     <option selected></option>
                                     <option value="✅">✅</option>
                                     <option value="喪中">喪中</option>
@@ -49,7 +50,7 @@
                         </div>   
                         <div class="col-md-2">
                             <label class="my-1 mr-2" for="content">2023年</label>
-                                <select class="custom-select my-1 mr-sm-2" id="content" name="content">
+                                <select class="custom-select my-1 mr-sm-2" id="content" name="content" required>
                                     <option selected></option>
                                     <option value="✅">✅</option>
                                     <option value="喪中">喪中</option>
@@ -59,7 +60,7 @@
                     </div>
                     <div class="col-mb-4">
                             <label class="my-1 mr-2" for="category">カテゴリー</label>
-                                <select class="custom-select my-1 mr-sm-2" id="category" name="category">
+                                <select class="custom-select my-1 mr-sm-2" id="category" name="category" required>
                                     <option selected></option>
                                     <option value="仕事">仕事</option>
                                     <option value="プライベート">プライベート</option>

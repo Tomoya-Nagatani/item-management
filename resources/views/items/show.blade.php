@@ -1,6 +1,13 @@
 @extends('layouts.app')
+
+@section('title', '確認画面')
+
 @section('content')
+
 <div class="container">
+    <div class="card-header">
+        <h3>確認画面</h3>
+        </div>
     <!-- 入力内容を返す -->
     <div class="card card-purple">
         <div class="card-body">

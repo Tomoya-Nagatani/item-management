@@ -19,13 +19,11 @@ class ItemFactory extends Factory
             'user_id' =>1,
             'name' => $this->faker->name(),
             'zipcode' => $this->faker->postcode(),
-            'address' => $this->faker->address(),
+            'address' => $this->faker->prefecture().$this->faker->city().$this->faker->streetAddress(),
             'content2021' => $this->faker->randomElement($arrary = ["✅", "喪中", "❌"]),
             'content2022' =>$this->faker->randomElement($arrary =  ["✅", "喪中", "❌"]),
             'content' => $this->faker->randomElement($arrary =  ["✅", "喪中", "❌"]),
             'category' => $this->faker->randomElement($arrary = ["仕事", "プライベート", "その他"]),
-            // 'memo' => $this->faker->realText(10),
-            
         ];
     }
 }

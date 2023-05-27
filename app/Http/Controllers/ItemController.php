@@ -26,7 +26,7 @@ class ItemController extends Controller
         $items = Item::where('status', 'active')
             ->when(!empty($keyword), function($query) use($keyword){
                 return $query->where('name', 'like', '%' . $keyword . '%')
-                    ->orWhere('content', 'like', '%' . $keyword . '%');
+                    ->orWhere('address', 'like', '%' . $keyword . '%');
             })
             ->sortable()
             ->paginate(10);
@@ -77,7 +77,7 @@ class ItemController extends Controller
         return view('items.show')->with([
             'item' => $item,
         ]);
-    }
+    }   
 
     // 商品編集ページ
     public function edit(Request $request)
@@ -96,17 +96,19 @@ class ItemController extends Controller
         $item->name = $request->name;
         $item->zipcode = $request->zipcode;
         $item->address = $request->address;
+        $item->content2021 = $request->content2021;
+        $item->content2022 = $request->content2022;
         $item->content = $request->content;
         $item->memo = $request->memo;
         $item->save();
-        return redirect('/items')->with('message', '編集が完了しました');
+        return redirect('/items')->with('flash_message', '編集が完了しました');
     }
     public function destroy(Request $request)
     {
         $item = Item::where('id', '=', $request->id)->first();
         $item->delete();
 
-        return redirect('/items')->with('delete_message', '削除しました');;
+        return redirect('/items')->with('flash_message', '削除しました');;
     }
 
     // CSV出力

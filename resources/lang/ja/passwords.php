@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'reset' => 'Your password has been reset!',
-    'sent' => 'We have emailed your password reset link!',
+    'reset' => 'パスワードはリセットされました！',
+    'sent' => 'メールアドレスにパスワード変更のリンクを送信しました!',
     'throttled' => 'Please wait before retrying.',
     'token' => 'This password reset token is invalid.',
     'user' => "We can't find a user with that email address.",
