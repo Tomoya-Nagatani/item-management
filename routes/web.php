@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::middleware(['auth'])->group(function () {
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('items')->group(function () {
@@ -34,3 +36,5 @@ Route::get('/items/{id}/destroy', [App\Http\Controllers\ItemController::class, '
 Route::get('/', [App\Http\Controllers\ItemController::class, 'index'])->name('search');
 Route::get('/exportexcel', [App\Http\Controllers\ItemController::class, 'exportExcel'])->name('exportexcel');
 Route::get('/exportpdf', [App\Http\Controllers\ItemController::class, 'exportPDF'])->name('exportpdf');
+
+});

@@ -30,8 +30,7 @@ class ItemController extends Controller
             })
             ->sortable()
             ->paginate(10);
-            // ->get();
-        return view('items.index', compact('items'))->with('items', $items);
+        return view('items.index')->with('items', $items);
     }
 
     /**
