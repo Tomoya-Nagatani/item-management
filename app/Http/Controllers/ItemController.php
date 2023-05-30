@@ -64,7 +64,7 @@ class ItemController extends Controller
                 'memo' => $request->memo,
             ]);
 
-            return redirect('/items');
+            return redirect('/items')->with('flash_message', '新規追加しました');
         }
 
         return view('items.add');
@@ -73,8 +73,9 @@ class ItemController extends Controller
     public function show(Request $request)
     {
         $item = Item::where('id', '=', $request->id)->first();
+     
         return view('items.show')->with([
-            'item' => $item,
+            'item' => $item
         ]);
     }   
 
