@@ -1,7 +1,9 @@
 @extends('adminlte::page')
 @section('title', '名簿一覧')
 @section('content_header')
-    <h1>名簿一覧</h1>
+    <h1>
+        {{ Auth::user()->name }}さんの名簿一覧
+    </h1>
     <div class="input-group mt-3 justify-content-end">
         <a href="{{ url('items/add') }}" class="btn btn-primary">新規登録</a>
     </div>
