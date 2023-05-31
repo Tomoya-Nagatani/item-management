@@ -9,6 +9,11 @@ use Kyslik\ColumnSortable\Sortable;
 class Item extends Model
 {
     use Sortable, HasFactory;
+
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
+    
     public $sortable = ['id', 'name', 'zipcode', 'address', 'content2021', 'content2022', 'content', 'category','memo'];
     /**
      * The attributes that are mass assignable.
