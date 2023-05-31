@@ -235,6 +235,11 @@ return [
             'url'  => 'items/add',
             'icon' => 'fas fa-user-plus',
         ],
+        [
+            'text' => '説明',
+            'url'  => 'home',
+            'icon' => 'fas fa-info',
+        ],
 
         // AdminLTEデフォルト
         /*
