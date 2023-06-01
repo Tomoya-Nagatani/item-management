@@ -226,11 +226,6 @@ return [
 
     'menu' => [
         [
-            'text' => '名簿一覧',
-            'url'  => 'items',
-            'icon' => 'fas fa-user',
-        ],
-        [
             'text' => '新規登録',
             'url'  => 'items/add',
             'icon' => 'fas fa-user-plus',
