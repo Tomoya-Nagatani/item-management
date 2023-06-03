@@ -24,6 +24,7 @@ class ItemController extends Controller
     {
         $keyword = $request->input('keyword');
         $items = Item::where('status', 'active')
+        ->where('user_id', $request->user()->id)
             ->when(!empty($keyword), function($query) use($keyword){
                 return $query->where('name', 'like', '%' . $keyword . '%')
                     ->orWhere('address', 'like', '%' . $keyword . '%');
