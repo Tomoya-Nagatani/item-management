@@ -36,5 +36,6 @@ Route::get('/items/{id}/destroy', [App\Http\Controllers\ItemController::class, '
 Route::get('/', [App\Http\Controllers\ItemController::class, 'index'])->name('search');
 Route::get('/exportexcel', [App\Http\Controllers\ItemController::class, 'exportExcel'])->name('exportexcel');
 Route::get('/exportpdf', [App\Http\Controllers\ItemController::class, 'exportPDF'])->name('exportpdf');
+Route::post('/items/delete', [App\Http\Controllers\ItemController::class, 'delete'])->name('items.delete');
 
 });

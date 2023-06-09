@@ -50,6 +50,7 @@
      <table class="table table-hover text-nowrap">
         <thead>
             <tr>
+                <th><input type="checkbox" id="selectAll"> 全選択</th>
                 <th>@sortablelink('id', 'ID')</th>
                 <th>@sortablelink('name', '名前')</th>
                 <th>@sortablelink('zipcode', '郵便番号')</th>
@@ -63,7 +64,10 @@
             </tr>
         </thead>
     <tbody>
+    <form action="{{ route('items.delete') }}" method="POST">
+    @csrf
         @foreach ($items as $item)
+                                    <td><input type="checkbox" name="selectedItems[]" id="item{{ $item->id }}" value="{{$item->id}}" ></td>
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->zipcode }}</td>
@@ -74,13 +78,15 @@
                                     <td>{{ $item->category }}</td>
                                     <td>{{ $item->memo }}</td>
                                     <td><a href="{{ route('items.show',$item->id)}}"><button type="button" class="btn btn-outline-info">詳細</button></a></td>                                   
-                                      
-                                 
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    <button type="submit" class="btn btn-danger btn-sm">削除</button>
+    </form>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                     {{$items->links()}}
+    </div>
                 </div>
             </div>
         </div>
@@ -105,6 +111,17 @@
                         toastr.success('{{ session('flash_message') }}');
                 });
             @endif
+           
+    // 全選択のチェックボックス
+    const selectAllCheckbox = document.querySelector('#selectAll');
+    selectAllCheckbox.addEventListener('change', function() {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(function(checkbox) {
+            checkbox.checked = selectAllCheckbox.checked;
+        });
+    });
+
+
         </script>
 
 @stop

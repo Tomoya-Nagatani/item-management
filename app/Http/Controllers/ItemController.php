@@ -117,4 +117,9 @@ class ItemController extends Controller
         return Excel::download(new ItemExport, 'items.xlsx');
     }
 
-}
+    public function delete(Request $request){
+        $selectedItems = $request->input('selectedItems', []);
+        Item::whereIn('id', $selectedItems)->delete();
+        return redirect()->back()->with('success', '項目が削除されました');
+    }
+}   
