@@ -50,13 +50,18 @@
                     <div class="row mb-4">
                          <!-- カテゴリー -->
                          <div class="col-4">
-                        <label for="category" class="form-label">カテゴリー</label><br>
+                        <label for="category" class="form-label">分類</label><br>
                         <span class="border-bottom"> {{$item->category}}</span>
                         </div>
                         <!-- メモ -->
                         <div class="col-4">
                         <label for="memo" class="form-label">メモ</label><br>
                         <span class="border-bottom"> {{$item->memo}}</span>
+                        </div>   
+                        <!-- 登録した日付 -->
+                        <div class="col-4">
+                        <label for="memo" class="form-label">登録日</label><br>
+                        <span class="border-bottom"> {{$item->created_at}}</span>
                         </div>   
                     </div>
                 </div>

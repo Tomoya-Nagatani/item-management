@@ -59,7 +59,7 @@
                         </div>
                     </div>
                     <div class="col-mb-4">
-                            <label class="my-1 mr-2" for="category">カテゴリー</label>
+                            <label class="my-1 mr-2" for="category">分類</label>
                                 <select class="custom-select my-1 mr-sm-2" id="category" name="category" value="{{$item->category}}" required>                                  
                                     <option value="仕事" @if($item->category == '仕事') selected @endif >仕事</option>
                                     <option value="プライベート" @if($item->category == 'プライベート') selected @endif >プライベート</option>

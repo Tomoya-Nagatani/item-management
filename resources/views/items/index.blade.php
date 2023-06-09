@@ -50,15 +50,14 @@
      <table class="table table-hover text-nowrap">
         <thead>
             <tr>
-                <th><input type="checkbox" id="selectAll"> 全選択</th>
-                <th>@sortablelink('id', 'ID')</th>
+                <th><input type="checkbox" id="selectAll"></th>
                 <th>@sortablelink('name', '名前')</th>
                 <th>@sortablelink('zipcode', '郵便番号')</th>
                 <th>@sortablelink('address', '住所')</th>
-                <th>@sortablelink('content2021', '2021年')</th>
-                <th>@sortablelink('content2022', '2022年')</th>
-                <th>@sortablelink('content', '2023年')</th>
-                <th>@sortablelink('category', 'カテゴリー')</th>
+                <th>@sortablelink('content2021', '2021')</th>
+                <th>@sortablelink('content2022', '2022')</th>
+                <th>@sortablelink('content', '2023')</th>
+                <th>@sortablelink('category', '分類')</th>
                 <th>@sortablelink('memo', 'メモ')</th>
                 <th>編集</th>                  
             </tr>
@@ -68,7 +67,6 @@
     @csrf
         @foreach ($items as $item)
                                     <td><input type="checkbox" name="selectedItems[]" id="item{{ $item->id }}" value="{{$item->id}}" ></td>
-                                    <td>{{ $item->id }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->zipcode }}</td>
                                     <td>{{ $item->address }}</td>

@@ -70,7 +70,7 @@
                     </div>
                     <!-- カテゴリー -->
                     <div class="col-mb-4">
-                            <label class="my-1 mr-2" for="category">カテゴリー</label>
+                            <label class="my-1 mr-2" for="category">分類</label>
                                 <select class="custom-select my-1 mr-sm-2" id="category" name="category" required>
                                     <option selected></option>
                                     <option value="仕事">仕事</option>
