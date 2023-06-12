@@ -68,7 +68,7 @@
                                 </select>
                         </div>
                     </div>
-                    <!-- カテゴリー -->
+                    <!-- 分類 -->
                     <div class="col-mb-4">
                             <label class="my-1 mr-2" for="category">分類</label>
                                 <select class="custom-select my-1 mr-sm-2" id="category" name="category" required>
