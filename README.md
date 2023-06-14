@@ -17,8 +17,8 @@
 
 ## 開発環境
 ```
-PHP 
-MySQL
+PHP 7.3
+MySQL 5.6
 Laravel 8.83
 ```
 
